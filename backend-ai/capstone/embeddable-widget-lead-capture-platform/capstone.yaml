@@ -1,0 +1,17 @@
+version: "1.0"
+capstone_id: "flyrank-capstone-widget-platform"
+title: "Embeddable Widget & Lead-Capture Platform"
+base_url: "http://localhost:8000"
+
+commands:
+  run: "python main.py"
+  seed: "python seed_demo_data.py"
+  test: "pytest test_suite.py -v"
+
+endpoints:
+  health: "/health"
+  public_widget_script: "/widget.js"
+  public_widget_config: "/api/v1/widgets/{widget_id}/config"
+  public_submission: "/api/v1/submissions"
+  admin_widgets: "/api/v1/admin/widgets"
+  owner_dashboard: "/api/v1/dashboard/stats"

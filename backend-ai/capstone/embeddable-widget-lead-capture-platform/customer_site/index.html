@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Website — Second Origin Test Page</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background-color: #F1F5F9;
+      color: #0F172A;
+      margin: 0;
+      padding: 40px;
+    }
+    .card {
+      max-width: 700px;
+      margin: 0 auto;
+      background: white;
+      padding: 32px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    h1 { color: #1E293B; }
+    p { color: #64748B; line-height: 1.6; }
+    .badge {
+      display: inline-block;
+      background: #EFF6FF;
+      color: #2563EB;
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="badge">Customer Website (Second Origin)</div>
+    <h1>Welcome to Acme Client Portal</h1>
+    <p>This is a completely separate client website running on a different origin than the API server. The FlyRank Embeddable Lead Capture widget below is injected via a single line of <code>&lt;script&gt;</code> tag!</p>
+    <p>Look at the bottom right corner of this page to see the live embeddable widget.</p>
+  </div>
+
+  <!-- Embeddable Widget Script Snippet -->
+  <script src="http://localhost:8000/widget.js?id=demo-widget-id"></script>
+
+</body>
+</html>
