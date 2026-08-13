@@ -1,5 +1,4 @@
-# The Polite Scraper 📚
-
+# W5: The Polite Scraper 
 A small, well-behaved web scraping pipeline that downloads the first **3 catalogue pages** of [Books to Scrape](https://books.toscrape.com), visits all **60 book detail pages**, turns messy HTML into clean validated JSON — politely, without crashing on a broken page, and with an honest run report at the end.
 
 ---
