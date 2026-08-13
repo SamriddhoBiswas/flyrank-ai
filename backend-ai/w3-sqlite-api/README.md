@@ -1,4 +1,4 @@
-# W2: Building CRUD API 
+# W3: Connecting to the database
 
 A CRUD API for managing a to-do list, built with **FastAPI** and backed by a **SQLite** database (`tasks.db`).  
 Data now **survives server restarts** — tasks are stored on disk, not in memory.

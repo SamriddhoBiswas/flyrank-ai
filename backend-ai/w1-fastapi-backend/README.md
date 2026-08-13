@@ -1,4 +1,4 @@
-# FastAPI Minimal Backend
+# W1: FastAPI Minimal Backend
 
 ## Project Overview
 
