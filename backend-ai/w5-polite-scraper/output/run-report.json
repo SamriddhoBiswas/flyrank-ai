@@ -1,0 +1,11 @@
+{
+  "start_time": "2026-08-12T07:42:21.155220Z",
+  "duration_sec": 1.61,
+  "catalogue_pages": 3,
+  "urls_discovered": 61,
+  "pages_fetched": 0,
+  "cache_hits": 63,
+  "valid_records": 60,
+  "invalid_records": 1,
+  "failed_pages": 1
+}

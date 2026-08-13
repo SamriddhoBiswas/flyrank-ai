@@ -1,0 +1,6 @@
+[
+  {
+    "url": "https://books.toscrape.com/catalogue/fake-book-does-not-exist_00001/index.html",
+    "reason": "fetch or parse failed"
+  }
+]
