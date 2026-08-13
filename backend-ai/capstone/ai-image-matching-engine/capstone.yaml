@@ -1,0 +1,18 @@
+version: "1.0"
+capstone_id: "flyrank-capstone-image-relevance"
+title: "AI Image Understanding & Content Matching Engine"
+base_url: "http://localhost:8000"
+
+commands:
+  run: "python main.py"
+  seed: "python seed_demo_data.py"
+  test: "pytest test_suite.py -v"
+
+endpoints:
+  health: "/health"
+  batch_process: "/api/v1/batch/process-images"
+  post_images: "/api/v1/posts/{post_id}/images"
+  review_approve: "/api/v1/review/approve"
+  review_reject: "/api/v1/review/reject"
+  eval_metrics: "/api/v1/eval/metrics"
+  cost_logs: "/api/v1/costs"
