@@ -1,0 +1,9 @@
+Proof Statement — Week 1, General AI Fluency Track
+
+Brief:
+
+I can take algorithmic problem-solving beyond isolated coding questions and implement it as part of complete, usable software: through regular DSA practice, I have built a strong foundation in algorithmic thinking, and I have applied that thinking in projects such as my User Analytics Application, where I implemented event tracking, session handling, aggregation, and heatmap generation, as well as other full-stack and AI-based applications where backend logic, databases, and interfaces work together as a complete product. I want a software engineering hiring manager or technical recruiter evaluating me for an SDE/GenAI-focused role to see this combination of algorithmic problem-solving and practical implementation and contact me for an interview.
+
+Why this needs to exist:
+
+My CV and LinkedIn can list DSA, LeetCode, full-stack development, and AI/GenAI as separate skills, but they cannot clearly demonstrate that I can take algorithmic thinking and turn it into working software; this proof makes that connection visible rather than leaving it implied.
