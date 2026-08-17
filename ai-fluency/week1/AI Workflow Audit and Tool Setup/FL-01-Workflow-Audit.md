@@ -1,4 +1,4 @@
-# FL-01 — Workflow Audit
+# W1: FL-01 — Workflow Audit
 
 **Track:** General AI Fluency  
 **Phase:** Onboarding
