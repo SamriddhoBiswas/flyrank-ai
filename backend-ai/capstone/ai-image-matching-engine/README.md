@@ -1,11 +1,6 @@
-# 🖼️ AI Image Understanding & Content Matching Engine
+# AI Image Understanding & Content Matching Engine
 
 > A production-grade AI decision system that understands image libraries, organizes images automatically, and matches each image to the right article using Vision AI, 16-dimensional semantic embeddings, and an explicit **Mismatch Guard** safety layer.
-
-[![Python Version](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![Framework](https://img.shields.io/badge/framework-FastAPI%20%7C%20Pydantic-orange.svg)](https://fastapi.tiangolo.com/)
-[![Top-1 Precision](https://img.shields.io/badge/Top--1%20Precision-100%25-brightgreen.svg)](README.md)
 
 ---
 
@@ -53,8 +48,8 @@ GET /api/v1/posts/:id/images
 
 ### Step 1: Clone & Navigate to Repository
 ```bash
-git clone https://github.com/NivedhN160/AI-Image-Understanding-Content-Matching-Engine-Flyrank-Capstone.git
-cd AI-Image-Understanding-Content-Matching-Engine-Flyrank-Capstone
+git clone <project_URL>
+cd <project_folder_name>
 ```
 
 ### Step 2: Create & Activate Virtual Environment
@@ -113,8 +108,3 @@ test_suite.py::test_probe_6_attributed_cost_tracking PASSED              [100%]
 2. **Synchronous Evaluation:** Image classification runs in batch loops. For multi-thousand image libraries, offloading to Redis/Celery queue workers is recommended.
 
 ---
-
-## 📄 License
-
-Built by **Samriddho** for the **FlyRank AI Internship — Backend AI Engineering Track Capstone**.  
-Licensed under the [MIT License](LICENSE).
