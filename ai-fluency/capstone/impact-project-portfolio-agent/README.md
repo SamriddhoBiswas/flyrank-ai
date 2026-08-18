@@ -21,4 +21,6 @@ The resume content is embedded as a system prompt. When a visitor asks a questio
 
 - `index.html` — the full site + chat widget
 - `api/chat.js` — serverless function that calls Gemini
-- `README.md` (this file's sibling) — deployment steps
+- `README.md` (this file) — description of the project
+
+`Deployed` https://sam-portfolio-agent.vercel.app/
