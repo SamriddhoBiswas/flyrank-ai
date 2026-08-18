@@ -1,10 +1,6 @@
-# 🚀 FlyRank Backend Capstone — Embeddable Widget & Lead-Capture Platform
+# FlyRank Backend Capstone — Embeddable Widget & Lead-Capture Platform
 
-> A production-grade backend platform enabling customers to create embeddable lead capture widgets (`<script src="http://localhost:8000/widget.js?id=..."></script>`) installed on any external website. Incoming public browser submissions are boundary-validated, rate-limited, spam-filtered via honeypots, enriched via a 2-provider geo fallback chain, and persisted to a multi-tenant dashboard.
-
-[![Python Version](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![Framework](https://img.shields.io/badge/framework-FastAPI%20%7C%20Pydantic-orange.svg)](https://fastapi.tiangolo.com/)
+> A production-grade backend platform enabling customers to create embeddable lead capture widgets installed on any external website. Incoming public browser submissions are boundary-validated, rate-limited, spam-filtered via honeypots, enriched via a 2-provider geo fallback chain, and persisted to a multi-tenant dashboard.
 
 ---
 
@@ -52,8 +48,8 @@ Follow these exact steps to run and test the platform on any clean computer:
 
 ### Step 1: Clone & Navigate to Repository
 ```bash
-git clone https://github.com/NivedhN160/Flyrank-Backend-AI-Engineering-Capstone.git
-cd Flyrank-Backend-AI-Engineering-Capstone
+git clone <project_URL>
+cd <project_folder_name>
 ```
 
 ### Step 2: Create & Activate Virtual Environment
@@ -116,7 +112,3 @@ test_suite.py::test_probe_6_honeypot_spam_filter PASSED                 [100%]
 
 ---
 
-## 📄 License
-
-Built by **Samriddho** for the **FlyRank AI Internship — Backend AI Engineering Track Capstone**.  
-Licensed under the [MIT License](LICENSE).
