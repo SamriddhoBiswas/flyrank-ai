@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Samriddho Biswas — Full-Stack &amp; AI Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0B1120;
+    --panel:#111A2E;
+    --panel-2:#0E1526;
+    --line:#22304C;
+    --text:#E7EAF2;
+    --muted:#8B98B4;
+    --amber:#E8B75C;
+    --teal:#5EEAD4;
+    --red:#F17B7B;
+    --green:#8CD98C;
+    --mono: 'JetBrains Mono', monospace;
+    --sans: 'Inter', sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--sans);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--teal); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  ::selection{background:var(--amber); color:#0B1120;}
+
+  /* ---------- Top bar: titlebar ---------- */
+  .titlebar{
+    display:flex; align-items:center; gap:16px;
+    padding:10px 20px;
+    background:var(--panel-2);
+    border-bottom:1px solid var(--line);
+    position:sticky; top:0; z-index:50;
+  }
+  .dots{display:flex; gap:7px;}
+  .dot{width:11px;height:11px;border-radius:50%;}
+  .dot.r{background:#F17B7B;} .dot.y{background:#E8B75C;} .dot.g{background:#8CD98C;}
+  .titlebar .path{
+    font-family:var(--mono); font-size:12.5px; color:var(--muted);
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+  }
+  .titlebar .path b{color:var(--text); font-weight:500;}
+
+  /* ---------- Tabs nav ---------- */
+  .tabs{
+    position:sticky; top:40px; z-index:49;
+    display:flex; overflow-x:auto; background:var(--panel-2);
+    border-bottom:1px solid var(--line);
+    scrollbar-width:none;
+  }
+  .tabs::-webkit-scrollbar{display:none;}
+  .tab{
+    font-family:var(--mono); font-size:12.5px; color:var(--muted);
+    padding:10px 18px; border-right:1px solid var(--line);
+    white-space:nowrap; cursor:pointer; border-bottom:2px solid transparent;
+    transition:.15s;
+  }
+  .tab:hover{color:var(--text); background:rgba(255,255,255,0.02);}
+  .tab.active{color:var(--amber); border-bottom:2px solid var(--amber); background:var(--bg);}
+
+  section{scroll-margin-top:86px;}
+  .wrap{max-width:920px; margin:0 auto; padding:0 24px;}
+
+  /* ---------- Hero / terminal ---------- */
+  .hero{padding:70px 0 50px;}
+  .hero .eyebrow{
+    font-family:var(--mono); font-size:12.5px; color:var(--green);
+    display:flex; align-items:center; gap:8px; margin-bottom:18px;
+  }
+  .hero .eyebrow::before{content:"●"; font-size:9px;}
+  .terminal{
+    background:var(--panel); border:1px solid var(--line); border-radius:10px;
+    overflow:hidden; box-shadow:0 20px 60px -20px rgba(0,0,0,0.6);
+  }
+  .terminal-head{
+    display:flex; align-items:center; gap:8px; padding:10px 14px;
+    background:var(--panel-2); border-bottom:1px solid var(--line);
+    font-family:var(--mono); font-size:11.5px; color:var(--muted);
+  }
+  .terminal-body{padding:22px 24px 26px; font-family:var(--mono); font-size:14.5px;}
+  .terminal-body .prompt{color:var(--teal);}
+  .terminal-body .cmd{color:var(--text);}
+  .out-name{
+    font-size:clamp(30px,5vw,46px); font-weight:800; color:var(--text);
+    margin:14px 0 6px; line-height:1.15; font-family:var(--sans);
+    letter-spacing:-0.02em;
+  }
+  .out-name span{color:var(--amber);}
+  .out-role{color:var(--muted); font-size:16px; margin-bottom:16px; font-family:var(--sans);}
+  .cursor{display:inline-block; width:8px; height:16px; background:var(--amber); vertical-align:middle; animation:blink 1s step-end infinite;}
+  @keyframes blink{50%{opacity:0;}}
+  .hero-links{display:flex; gap:10px; flex-wrap:wrap; margin-top:20px;}
+  .hero-links a{
+    font-family:var(--mono); font-size:12.5px; color:var(--text);
+    border:1px solid var(--line); padding:7px 13px; border-radius:6px;
+    transition:.15s;
+  }
+  .hero-links a:hover{border-color:var(--amber); color:var(--amber); text-decoration:none;}
+
+  /* ---------- Section heading style: file comment ---------- */
+  .sec-head{
+    display:flex; align-items:baseline; gap:10px; margin:0 0 22px;
+    padding-top:54px;
+  }
+  .sec-num{font-family:var(--mono); color:var(--amber); font-size:13px;}
+  .sec-title{font-size:24px; font-weight:700; letter-spacing:-0.01em;}
+  .sec-comment{font-family:var(--mono); font-size:12px; color:var(--muted);}
+
+  /* ---------- About ---------- */
+  .about-grid{display:grid; grid-template-columns:1.3fr 1fr; gap:28px;}
+  @media(max-width:720px){.about-grid{grid-template-columns:1fr;}}
+  .card{background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:20px;}
+  .edu-item{padding:14px 0; border-bottom:1px solid var(--line);}
+  .edu-item:last-child{border-bottom:none;}
+  .edu-item .school{font-weight:600; font-size:14.5px;}
+  .edu-item .degree{color:var(--muted); font-size:13.5px; font-style:italic; margin:2px 0;}
+  .edu-item .yrs{font-family:var(--mono); font-size:12px; color:var(--teal); margin-top:2px;}
+
+  /* ---------- Skills ---------- */
+  .skill-row{margin-bottom:14px;}
+  .skill-label{font-family:var(--mono); font-size:12px; color:var(--amber); margin-bottom:8px;}
+  .chips{display:flex; flex-wrap:wrap; gap:8px;}
+  .chip{
+    font-family:var(--mono); font-size:12px; padding:5px 10px;
+    background:var(--panel-2); border:1px solid var(--line); border-radius:5px; color:var(--text);
+  }
+
+  /* ---------- Experience ---------- */
+  .exp-item{position:relative; padding-left:22px; margin-bottom:6px;}
+  .exp-item::before{content:""; position:absolute; left:4px; top:6px; width:8px; height:8px; border-radius:50%; background:var(--green);}
+  .exp-item::after{content:""; position:absolute; left:7.5px; top:16px; bottom:-6px; width:1px; background:var(--line);}
+  .exp-head{display:flex; justify-content:space-between; flex-wrap:wrap; gap:6px; margin-bottom:6px;}
+  .exp-title{font-weight:600; font-size:15px;}
+  .exp-org{color:var(--muted); font-size:13.5px;}
+  .exp-date{font-family:var(--mono); font-size:12px; color:var(--teal); white-space:nowrap;}
+  .exp-list{padding-left:18px; color:var(--muted); font-size:13.8px;}
+  .exp-list li{margin-bottom:4px;}
+
+  /* ---------- Projects ---------- */
+  .proj-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+  @media(max-width:720px){.proj-grid{grid-template-columns:1fr;}}
+  .proj-card{background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:18px; transition:.15s;}
+  .proj-card:hover{border-color:var(--amber);}
+  .proj-head{display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:8px;}
+  .proj-name{font-weight:700; font-size:15.5px;}
+  .proj-link{font-family:var(--mono); font-size:11.5px; border:1px solid var(--line); padding:3px 8px; border-radius:5px;}
+  .proj-list{padding-left:16px; color:var(--muted); font-size:13.3px; margin-bottom:10px;}
+  .proj-list li{margin-bottom:3px;}
+  .tools{font-family:var(--mono); font-size:11.5px; color:var(--teal);}
+
+  /* ---------- Achievements ---------- */
+  .ach-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+  @media(max-width:720px){.ach-grid{grid-template-columns:1fr;}}
+  .ach-list{list-style:none;}
+  .ach-list li{
+    padding:9px 0 9px 20px; position:relative; font-size:13.8px; color:var(--text);
+    border-bottom:1px solid var(--line);
+  }
+  .ach-list li:last-child{border-bottom:none;}
+  .ach-list li::before{content:"▸"; position:absolute; left:0; color:var(--amber);}
+
+  /* ---------- Contact / footer ---------- */
+  .contact{padding:54px 0 40px; text-align:center;}
+  .contact p{color:var(--muted); margin:10px 0 20px;}
+  footer{border-top:1px solid var(--line); padding:22px; text-align:center; font-family:var(--mono); font-size:11.5px; color:var(--muted);}
+
+  /* ---------- Chat widget (the agent) ---------- */
+  .chat-toggle{
+    position:fixed; bottom:22px; right:22px; z-index:100;
+    background:var(--amber); color:#0B1120; border:none; border-radius:50%;
+    width:56px; height:56px; font-family:var(--mono); font-weight:700; font-size:12px;
+    cursor:pointer; box-shadow:0 10px 30px -8px rgba(232,183,92,0.6);
+  }
+  .chat-panel{
+    position:fixed; bottom:90px; right:22px; z-index:100;
+    width:min(360px, calc(100vw - 32px)); height:min(480px, calc(100vh - 140px));
+    background:var(--panel); border:1px solid var(--line); border-radius:12px;
+    display:none; flex-direction:column; overflow:hidden;
+    box-shadow:0 30px 70px -20px rgba(0,0,0,0.7);
+  }
+  .chat-panel.open{display:flex;}
+  .chat-head{
+    padding:12px 14px; background:var(--panel-2); border-bottom:1px solid var(--line);
+    font-family:var(--mono); font-size:12px; color:var(--muted); display:flex; justify-content:space-between; align-items:center;
+  }
+  .chat-head b{color:var(--green);}
+  .chat-body{flex:1; overflow-y:auto; padding:14px; font-family:var(--mono); font-size:12.8px;}
+  .msg{margin-bottom:12px;}
+  .msg .who{font-size:11px; margin-bottom:3px;}
+  .msg.user .who{color:var(--teal);}
+  .msg.bot .who{color:var(--amber);}
+  .msg .text{color:var(--text); white-space:pre-wrap; line-height:1.5;}
+  .chat-input-row{display:flex; border-top:1px solid var(--line);}
+  .chat-input-row input{
+    flex:1; background:var(--panel-2); border:none; color:var(--text);
+    padding:12px 14px; font-family:var(--mono); font-size:12.5px; outline:none;
+  }
+  .chat-input-row button{
+    background:var(--amber); color:#0B1120; border:none; padding:0 16px;
+    font-family:var(--mono); font-weight:700; font-size:12px; cursor:pointer;
+  }
+  .chat-hint{font-size:11.5px; color:var(--muted); padding:0 14px 10px;}
+</style>
+</head>
+<body>
+
+<div class="titlebar">
+  <div class="dots"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span></div>
+  <div class="path"><b>samriddho-biswas</b> — portfolio.tsx</div>
+</div>
+
+<div class="tabs" id="tabs">
+  <div class="tab active" data-target="home">home.tsx</div>
+  <div class="tab" data-target="about">about.md</div>
+  <div class="tab" data-target="skills">skills.json</div>
+  <div class="tab" data-target="experience">experience.log</div>
+  <div class="tab" data-target="projects">projects/</div>
+  <div class="tab" data-target="achievements">achievements.txt</div>
+  <div class="tab" data-target="contact">contact.sh</div>
+</div>
+
+<section id="home">
+  <div class="wrap hero">
+    <div class="eyebrow">available for opportunities</div>
+    <div class="terminal">
+      <div class="terminal-head">bash — whoami</div>
+      <div class="terminal-body">
+        <div><span class="prompt">samriddho@dev</span><span class="cmd">:~$ whoami</span></div>
+        <div class="out-name">Samriddho <span>Biswas</span></div>
+        <div class="out-role">Full-Stack &amp; AI Developer — building products end-to-end<span class="cursor"></span></div>
+        <div style="color:var(--muted); font-size:13.5px;">B.Tech, Computer Science Engineering @ IIIT Kalyani (2023–2027)</div>
+      </div>
+    </div>
+    <div class="hero-links">
+      <a href="https://www.linkedin.com/in/samriddho-biswas-8907a32a2/" target="_blank">LinkedIn ↗</a>
+      <a href="https://github.com/SamriddhoBiswas" target="_blank">GitHub ↗</a>
+      <a href="https://leetcode.com/u/samriddho_v9/" target="_blank">Leetcode ↗</a>
+      <a href="https://drive.google.com/file/d/1PX5Fhq2kTDYTzmEs8tav3v8kvh4tKtry/view?usp=sharing" target="_blank">Resume (PDF) ↗</a>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">01</span><span class="sec-title">Education</span><span class="sec-comment">// about.md</span></div>
+    <div class="card">
+      <div class="edu-item">
+        <div class="school">Indian Institute of Information Technology, Kalyani</div>
+        <div class="degree">Bachelor of Technology (B.Tech) in Computer Science Engineering</div>
+        <div class="yrs">2023 — 2027</div>
+      </div>
+      <div class="edu-item">
+        <div class="school">Delhi Public School Ruby Park, Kolkata</div>
+        <div class="degree">Higher Secondary (Class XII)</div>
+        <div class="yrs">2021 — 2023</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">02</span><span class="sec-title">Skills</span><span class="sec-comment">// skills.json</span></div>
+    <div class="card">
+      <div class="skill-row">
+        <div class="skill-label">languages</div>
+        <div class="chips"><span class="chip">C++</span><span class="chip">Python</span><span class="chip">JavaScript</span><span class="chip">TypeScript</span></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-label">frameworks &amp; libraries</div>
+        <div class="chips"><span class="chip">Next.js</span><span class="chip">React.js</span><span class="chip">Node.js</span><span class="chip">Express.js</span><span class="chip">FastAPI</span></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-label">databases</div>
+        <div class="chips"><span class="chip">PostgreSQL</span><span class="chip">MongoDB</span><span class="chip">Supabase</span><span class="chip">MySQL</span><span class="chip">Prisma ORM</span></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-label">developer tools</div>
+        <div class="chips"><span class="chip">Git</span><span class="chip">GitHub</span><span class="chip">Docker</span><span class="chip">Postman</span><span class="chip">Vercel</span></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-label">problem solving</div>
+        <div class="chips"><span class="chip">300+ Leetcode problems solved</span><span class="chip">1400+ contest rating</span></div>
+      </div>
+      <div class="skill-row" style="margin-bottom:0;">
+        <div class="skill-label">coursework</div>
+        <div class="chips"><span class="chip">Data Structures &amp; Algorithms</span><span class="chip">OOP</span><span class="chip">DBMS</span><span class="chip">Operating Systems</span><span class="chip">Computer Networks</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">03</span><span class="sec-title">Experience</span><span class="sec-comment">// experience.log</span></div>
+    <div class="card">
+      <div class="exp-item">
+        <div class="exp-head">
+          <div>
+            <div class="exp-title">Full Stack Web Developer Intern</div>
+            <div class="exp-org">Calanjiyam Consultancies and Technologies · Tamil Nadu, India</div>
+          </div>
+          <div class="exp-date">Dec 2025 — Feb 2026</div>
+        </div>
+        <ul class="exp-list">
+          <li>Developed full-stack web applications with responsive UI</li>
+          <li>Designed and implemented REST APIs for application features and data management</li>
+          <li>Worked with Git-based workflows to develop, test, and deploy production-ready features</li>
+          <li>Debugged and optimized application performance across frontend and backend systems</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">04</span><span class="sec-title">Projects</span><span class="sec-comment">// projects/</span></div>
+    <div class="proj-grid">
+      <div class="proj-card">
+        <div class="proj-head"><div class="proj-name">FinanceIO — Smart Finance Manager</div><a class="proj-link" href="#">GitHub</a></div>
+        <ul class="proj-list">
+          <li>Designed and implemented expense tracking, budgeting, and multi-account financial management features</li>
+          <li>Built REST APIs for transaction management, budget tracking, and financial analytics</li>
+          <li>Integrated AI-powered receipt scanning to automate transaction extraction and categorization</li>
+        </ul>
+        <div class="tools">Tools: Next.js · Supabase · Prisma · Clerk Auth</div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-head"><div class="proj-name">PricePulse — Product Price Tracker</div><a class="proj-link" href="#">GitHub</a></div>
+        <ul class="proj-list">
+          <li>Built a system to track product prices across multiple e-commerce sites</li>
+          <li>Implemented automated scraping pipelines with real-time price drop alerts</li>
+          <li>Added scheduled monitoring for continuous updates and responsive trend visualization</li>
+        </ul>
+        <div class="tools">Tools: Next.js · Firecrawl · Supabase · Resend · Google OAuth</div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-head"><div class="proj-name">TaskFlow — Project Management Platform</div><a class="proj-link" href="#">GitHub</a></div>
+        <ul class="proj-list">
+          <li>Built a multi-tenant project management platform supporting organizations, projects, sprints, and issue tracking</li>
+          <li>Implemented authentication and authorization using Clerk with organization-based access control</li>
+          <li>Developed drag-and-drop Kanban boards, issue management workflows, and advanced filtering for task tracking</li>
+        </ul>
+        <div class="tools">Tools: Next.js · TypeScript · Clerk · NeonDB · Prisma</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="achievements">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">05</span><span class="sec-title">Achievements &amp; Certifications</span><span class="sec-comment">// achievements.txt</span></div>
+    <div class="ach-grid">
+      <div class="card">
+        <div class="skill-label" style="margin-bottom:10px;">awards</div>
+        <ul class="ach-list">
+          <li>1st prize in Education Track at StatusCode2, organised by MLH and IIIT Kalyani</li>
+          <li>2nd place in CP Contest organised by CodeCubes IIIT Kalyani, among 100+ participants</li>
+          <li>Top 25 hackers in Rebase&lt;01&gt; Hackathon organised by Google DSC IIIT Kalyani</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="skill-label" style="margin-bottom:10px;">certifications</div>
+        <ul class="ach-list">
+          <li>AI Fluency: Framework and Foundations — Anthropic</li>
+          <li>Level 3 GenAI: Prompt Engineering</li>
+          <li>Google Cloud Computing Foundations</li>
+          <li>Postman API Fundamentals Student Expert</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap contact">
+    <div class="sec-head" style="justify-content:center;"><span class="sec-num">06</span><span class="sec-title">Get in touch</span></div>
+    <p>Open to full-stack & AI engineering roles, internships, and collaborations.</p>
+    <div class="hero-links" style="justify-content:center;">
+      <a href="https://www.linkedin.com/in/samriddho-biswas-8907a32a2/" target="_blank">LinkedIn ↗</a>
+      <a href="https://github.com/SamriddhoBiswas" target="_blank">GitHub ↗</a>
+      <a href="https://leetcode.com/u/samriddho_v9/" target="_blank">Leetcode ↗</a>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 Samriddho Biswas — built with HTML/CSS/JS, RAG-powered chat agent · ask me anything using the chat bubble →</footer>
+
+<!-- Chat agent -->
+<button class="chat-toggle" id="chatToggle">ASK</button>
+<div class="chat-panel" id="chatPanel">
+  <div class="chat-head"><span><b>●</b> ask-samriddho.sh</span><span id="chatClose" style="cursor:pointer;">✕</span></div>
+  <div class="chat-body" id="chatBody">
+    <div class="msg bot"><div class="who">agent</div><div class="text">Hi! I'm Samriddho's resume agent. Ask me about his skills, projects, experience, or education.</div></div>
+  </div>
+  <div class="chat-hint">Powered by Gemini · answers grounded in the resume above</div>
+  <div class="chat-input-row">
+    <input id="chatInput" type="text" placeholder="e.g. What did he build at FinanceIO?" />
+    <button id="chatSend">Send</button>
+  </div>
+</div>
+
+<script>
+  // Tab nav scroll-spy + click
+  const tabs = document.querySelectorAll('.tab');
+  tabs.forEach(t => t.addEventListener('click', () => {
+    document.getElementById(t.dataset.target).scrollIntoView({behavior:'smooth'});
+  }));
+  const sections = [...tabs].map(t => document.getElementById(t.dataset.target));
+  window.addEventListener('scroll', () => {
+    let current = sections[0].id;
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.id; });
+    tabs.forEach(t => t.classList.toggle('active', t.dataset.target === current));
+  });
+
+  // Chat widget
+  const chatToggle = document.getElementById('chatToggle');
+  const chatPanel = document.getElementById('chatPanel');
+  const chatClose = document.getElementById('chatClose');
+  const chatBody = document.getElementById('chatBody');
+  const chatInput = document.getElementById('chatInput');
+  const chatSend = document.getElementById('chatSend');
+
+  chatToggle.onclick = () => chatPanel.classList.toggle('open');
+  chatClose.onclick = () => chatPanel.classList.remove('open');
+
+  function addMsg(who, text){
+    const div = document.createElement('div');
+    div.className = 'msg ' + who;
+    div.innerHTML = '<div class="who">' + (who === 'user' ? 'you' : 'agent') + '</div><div class="text"></div>';
+    div.querySelector('.text').textContent = text;
+    chatBody.appendChild(div);
+    chatBody.scrollTop = chatBody.scrollHeight;
+    return div.querySelector('.text');
+  }
+
+  async function askAgent(question){
+    const thinkingEl = addMsg('bot', '…thinking');
+    try{
+      const response = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ question })
+      });
+      const data = await response.json();
+      thinkingEl.textContent = data.reply || "Sorry, I couldn't generate a response.";
+    }catch(err){
+      thinkingEl.textContent = "Agent unavailable right now — try again in a moment.";
+    }
+    chatBody.scrollTop = chatBody.scrollHeight;
+  }
+
+  function sendMessage(){
+    const q = chatInput.value.trim();
+    if(!q) return;
+    addMsg('user', q);
+    chatInput.value = '';
+    askAgent(q);
+  }
+  chatSend.onclick = sendMessage;
+  chatInput.addEventListener('keydown', e => { if(e.key === 'Enter') sendMessage(); });
+</script>
+
+</body>
+</html>
