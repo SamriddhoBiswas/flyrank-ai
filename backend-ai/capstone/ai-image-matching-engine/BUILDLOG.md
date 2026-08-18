@@ -1,8 +1,6 @@
 # 📝 BUILDLOG.md — AI Co-Pilot & Architectural Build Log
 
 **Capstone Project:** AI Image Understanding & Content Matching Engine  
-**Track:** Backend AI Engineering Capstone  
-**Author:** Nivedh  
 
 ---
 

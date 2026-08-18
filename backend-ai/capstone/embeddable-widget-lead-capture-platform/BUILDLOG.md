@@ -1,10 +1,6 @@
 # 📝 BUILDLOG.md — AI Co-Pilot & Architectural Build Log
 
 **Capstone Project:** Embeddable Widget & Lead-Capture Platform  
-**Track:** Backend AI Engineering Capstone  
-**Author:** Nivedh  
-
----
 
 ## 📌 Build Journey & AI Collaboration Notes
 

@@ -1,9 +1,6 @@
 # 📄 EVIDENCE.md — Definition of Done Verification Log
 
 **Capstone Project:** Embeddable Widget & Lead-Capture Platform  
-**Track:** Backend AI Engineering Capstone  
-**Author:** Nivedh  
-**Repository:** [https://github.com/NivedhN160/Flyrank-Backend-AI-Engineering-Capstone](https://github.com/NivedhN160/Flyrank-Backend-AI-Engineering-Capstone)  
 
 ---
 

@@ -1,9 +1,6 @@
 # 📄 EVIDENCE.md — Definition of Done Verification Log
 
 **Capstone Project:** AI Image Understanding & Content Matching Engine  
-**Track:** Backend AI Engineering Capstone  
-**Author:** Nivedh  
-**Repository:** [https://github.com/NivedhN160/AI-Image-Understanding-Content-Matching-Engine-Flyrank-Capstone](https://github.com/NivedhN160/AI-Image-Understanding-Content-Matching-Engine-Flyrank-Capstone)  
 
 ---
 
